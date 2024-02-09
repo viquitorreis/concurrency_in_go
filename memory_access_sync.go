@@ -21,11 +21,13 @@ func memoryAccess2() {
 	go func() {
 		memoryAccess.Lock()
 		value++
+		fmt.Printf("o valor é %v.\n", value)
 		memoryAccess.Unlock()
 	}()
 	memoryAccess.Lock()
 	if value == 0 {
 		fmt.Printf("o valor é %v.\n", value)
+	} else {
 		fmt.Printf("o valor é %v.\n", value)
 	}
 	memoryAccess.Unlock()
